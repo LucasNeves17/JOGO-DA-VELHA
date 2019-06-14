@@ -1,9 +1,10 @@
 const jogador1 = "X";
 const jogador2 = "O";
-var imagens = new Array();
 var primeiraJogada = jogador1;
-var fimdejogo = false;
+var fimdeJogo = false;
+var images = new Array();
 
-var rodadaAtual = 0;
-var fimdejogo = false;
 var sequencia = [];
+var rodadaAtual = 0;
+var sequenciaPosicao = 0;
+var fimdeJogo = false;
