@@ -34,3 +34,41 @@ function atualizaIndicador(){
 		player.setAttribute("src", images[1].src);
 	}
 }
+
+function inicializarEspacos(){
+
+	var espacos = document.getElementsByClassName("espaco");
+	for (var i = 0; i < espacos.length; i++) {
+
+		espacos[i].innerHTML = "<img id='p1' src='"+images[0].src+"' border='0'><img id='p2' src='"+images[1].src+"' border='0'>";
+		espacos[i].getElementsByTagName('img')[0].style.display = "none";
+		espacos[i].getElementsByTagName('img')[1].style.display = "none";
+
+		espacos[i].addEventListener("click", function(){
+
+			if (fimdeJogo) {return;}
+
+
+
+			if(this.getAttribute("jogada") == ""){
+
+				if (primeiraJogada == jogador1) {
+					this.getElementsByTagName('img')[0].style.display = "inline";
+					//this.innerHTML = "<img src='"+images[0].src+"' border='0'>";
+					this.setAttribute("jogada", jogador1);
+					primeiraJogada = jogador2;
+
+				}else{
+					this.getElementsByTagName('img')[1].style.display = "inline";
+					//this.innerHTML = "<img src='"+images[1].src+"' border='0'>";
+					this.setAttribute("jogada", jogador2);
+					primeiraJogada = jogador1;
+				}
+				atualizaIndicador();
+				verificarVencedor();
+
+			}
+
+		});
+	}
+}
